@@ -14,25 +14,61 @@
 #
 # ./repackage-gbif-backbone.sh 
 #
-# 
+# With results will be placed in the "target" directory:
+# target/
+#   README
+#   gbif-backbone-simple.txt.gz (downloaded original)
+#   gbif-backbone-by-id.tsv.gz  (repackaged)
+#   gbif-backbone-by-name.tsv.gz (repackaged)
+#   ...
 #
-
 set -xe
-
-date
 
 mkdir -p target
 
+# apply date stamp
+cat <(echo -e "Publication date:\n$(date)\n\n") <(cat static/README)\
+> target/README
+
+# copy this script
+cp $1 target/
+
 curl https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.txt.gz\
+> target/backbone-current-simple.txt.gz
+
+cat target/backbone-current-simple.txt.gz\
 | gunzip\
 | tr '\r' '\n'\
 | cut -f1-20\
 | LC_ALL=C sort -nr\
 | gzip\
-| tee target/gbif-backbone-by-id.txt.gz\
+| tee target/gbif-backbone-by-id.tsv.gz\
 | gunzip\
 | cut -f1,20\
 | awk -F '\t' '{ print $2 "\t" $1 }'\
 | LC_ALL=C sort -r\
 | gzip\
- 1> target/gbif-backbone-by-name.txt.gz
+ 1> target/gbif-backbone-by-name.tsv.gz
+
+calc_hash() {
+  sha256sum - | grep -o "[a-f0-9]*"
+}
+
+document_hash_gz () {
+    let HASH=$(cat "$1.gz" | gunzip | calc_hash)
+    echo $HASH > target/$1.sha256
+    echo -e "$1 " >> target/README
+    echo "hash://sha256/$HASH" >> target/README
+    document_hash "$1.gz"
+}
+
+document_hash () {
+    let HASH=$(cat "$1" | calc_hash)
+    echo $HASH > target/$1.sha256
+    echo -e "$1 " >> target/README
+    echo "hash://sha256/$HASH" >> target/README
+}
+
+document_hash_gz gbif-backbone-by-name.tsv
+document_hash_gz gbif-backbone-by-id.tsv
+document_hash gbif-backbone-simple.txt.gz
