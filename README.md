@@ -21,9 +21,9 @@ $ repackage-gbif-backbone.sh
 ...
 (some time later)
 ...
-$ ls -1 | grep gz
-gbif-backbone-current-simplerer-by-name.txt.gz
-gbif-backbone-current-simpler-by-id.txt.gz
+$ ls target/
+gbif-backbone-by-name.tsv.gz
+gbif-backbone-by-id.tsv.gz
 ```
 
 
