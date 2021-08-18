@@ -31,7 +31,7 @@ cat <(echo -e "Publication date:\n$(date)\n\n") <(cat static/README)\
 > target/README
 
 # copy this script
-cp $1 target/
+cp "$0" target/
 
 curl https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.txt.gz\
 > target/backbone-current-simple.txt.gz
