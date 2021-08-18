@@ -17,8 +17,9 @@
 # 
 #
 
-curl --silent https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.txt.gz\
+curl https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.txt.gz\
 | gunzip\
+| tr '\r' '\n'\
 | cut -f1-20\
 | LC_ALL=C sort -nr\
 | gzip\
