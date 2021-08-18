@@ -29,10 +29,10 @@ curl https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.
 | cut -f1-20\
 | LC_ALL=C sort -nr\
 | gzip\
-| tee target/gbif-backbone-current-simpler-by-id.txt.gz\
+| tee target/gbif-backbone-by-id.txt.gz\
 | gunzip\
 | cut -f1,20\
 | awk -F '\t' '{ print $2 "\t" $1 }'\
 | LC_ALL=C sort -r\
 | gzip\
- 1> target/gbif-backbone-current-simplerer-by-name.txt.gz
+ 1> target/gbif-backbone-by-name.txt.gz
