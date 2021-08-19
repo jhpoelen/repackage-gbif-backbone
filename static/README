@@ -29,13 +29,15 @@ backbone-current-simple.txt.gz:
     original GBIF backbone archive
 
 gbif-backbone-by-name.tsv.gz:
-    two columns, gzipped, tab-separated text file with columns name, and id 
+    two columns, gzipped, tab-separated text file with columns name, and id
+    reverse sorted by name 
 
 gbif-backbone-by-name.tsv.sha256:
     sha256 hash of the uncompressed gbif-backbone-by-name.tsv.gz
 
 gbif-backbone-by-id.tsv.gz:
     20 columns, gzipped, tab-separated text file with first 20 columns of repackaged GBIF backbone file
+    reverse sorted by id
 
 gbif-backbone-by-id.tsv.sha256:
     sha256 hash of the uncompressed gbif-backbone-by-id.tsv.gz
