@@ -55,7 +55,7 @@ calc_hash() {
 }
 
 document_hash_gz () {
-    let HASH=$(cat "$1.gz" | gunzip | calc_hash)
+    let HASH=$(cat "target/$1.gz" | gunzip | calc_hash)
     echo $HASH > target/$1.sha256
     echo -e "$1 " >> target/README
     echo "hash://sha256/$HASH" >> target/README
@@ -63,7 +63,7 @@ document_hash_gz () {
 }
 
 document_hash () {
-    let HASH=$(cat "$1" | calc_hash)
+    let HASH=$(cat "target/$1" | calc_hash)
     echo $HASH > target/$1.sha256
     echo -e "$1 " >> target/README
     echo "hash://sha256/$HASH" >> target/README

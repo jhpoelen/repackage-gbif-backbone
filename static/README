@@ -22,10 +22,16 @@ Contents
 README:
     this file
 
+repackage-gbif-backbone.sh:
+    script used to repackage GBIF Simple Backbone.
+
+backbone-current-simple.txt.gz:
+    original GBIF backbone archive
+
 gbif-backbone-by-name.tsv.gz:
     two columns, gzipped, tab-separated text file with columns name, and id 
 
-gbif-backbone-by-name.tsv.gz:
+gbif-backbone-by-name.tsv.sha256:
     sha256 hash of the uncompressed gbif-backbone-by-name.tsv.gz
 
 gbif-backbone-by-id.tsv.gz:
