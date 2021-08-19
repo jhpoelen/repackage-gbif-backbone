@@ -17,7 +17,7 @@
 # With results will be placed in the "target" directory:
 # target/
 #   README
-#   gbif-backbone-simple.txt.gz (downloaded original)
+#   backbone-simple.txt.gz (downloaded original)
 #   gbif-backbone-by-id.tsv.gz  (repackaged)
 #   gbif-backbone-by-name.tsv.gz (repackaged)
 #   ...
@@ -58,16 +58,17 @@ document_hash_gz () {
     document_hash "$1.gz"
     local HASH=$(cat "target/$1.gz" | gunzip | calc_hash)
     echo $HASH > target/$1.sha256
-    echo -e "    hash://sha256/$HASH (uncompressed)\n" >> target/README
+    echo "    hash://sha256/$HASH (uncompressed)" >> target/README
 }
 
 document_hash () {
     local HASH=$(cat "target/$1" | calc_hash)
     echo $HASH > target/$1.sha256
-    echo -e "$1:\n    hash://sha256/$HASH\n" >> target/README
+    echo "$1:"
+    echo "hash://sha256/$HASH" >> target/README
 }
 
 document_hash repackage-gbif-backbone.sh
-document_hash_gz gbif-backbone-simple.txt
+document_hash_gz backbone-current-simple.txt
 document_hash_gz gbif-backbone-by-name.tsv
 document_hash_gz gbif-backbone-by-id.tsv
