@@ -55,10 +55,10 @@ calc_hash() {
 }
 
 document_hash_gz () {
+    document_hash "$1.gz"
     local HASH=$(cat "target/$1.gz" | gunzip | calc_hash)
     echo $HASH > target/$1.sha256
-    echo -e "$1:\n    hash://sha256/$HASH\n" >> target/README
-    document_hash "$1.gz"
+    echo -e "    hash://sha256/$HASH (uncompressed)\n" >> target/README
 }
 
 document_hash () {
@@ -68,6 +68,6 @@ document_hash () {
 }
 
 document_hash repackage-gbif-backbone.sh
-document_hash gbif-backbone-simple.txt.gz
+document_hash_gz gbif-backbone-simple.txt
 document_hash_gz gbif-backbone-by-name.tsv
 document_hash_gz gbif-backbone-by-id.tsv
