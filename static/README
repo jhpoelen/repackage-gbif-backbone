@@ -1,5 +1,5 @@
-A Repackaged GBIF Backbone
-------------------------
+A Repackaged Taxonomic Backbone of Global Biodiversity Information Facility (GBIF)
+---
 
 Global Biodiversity Information Facility (GBIF) facilitates access to billions of biodiversity data records. This records include detailed accounts of life on earth.
 
@@ -9,15 +9,14 @@ At time of writing (18 Aug 2021), GBIF publishes a simplified version of their t
 
 This repository provides script to pre-process https://hosted-datasets.gbif.org/datasets/backbone/backbone-current-simple.txt.gz to help facilitate access and improve performance of the creation of search indexes.
 
-Pre-process steps currently include
------------------------------------
+Pre-process steps currently include:
 1. reducing amount of columns
 2. reverse sort by id
 3. reverse sort by name
 
 
 Contents
---------
+---
 
 README:
     this file
@@ -43,13 +42,13 @@ gbif-backbone-by-id.tsv.sha256:
     sha256 hash of the uncompressed gbif-backbone-by-id.tsv.gz
 
 References
-----------
+---
 
 [1] Simplied GBIF Backbone Taxonomy. Accessed at https://hosted-datasets.gbif.org/datasets/backbone/ on 2021-08-18.
 [2] GBIF Secretariat (2021). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2021-08-18.
 
 
 Hash URIs
----------
+---
 This publication includes the following content uris:
 
