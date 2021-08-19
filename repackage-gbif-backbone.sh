@@ -27,7 +27,7 @@ set -xe
 mkdir -p target
 
 # apply date stamp
-cat <(echo -e "Publication date:\n$(date)\n\n") <(cat static/README)\
+cat <(echo -e "Publication date:\n$(date -Iseconds)\n\n") <(cat static/README)\
 > target/README
 
 # copy this script
@@ -65,7 +65,6 @@ document_hash () {
     local HASH=$(cat "target/$1" | calc_hash)
     echo $HASH > target/$1.sha256
     echo -e "$1:\n    hash://sha256/$HASH\n\n" >> target/README
-    echo "hash://sha256/$HASH" >> target/README
 }
 
 document_hash repackage-gbif-backbone.sh
