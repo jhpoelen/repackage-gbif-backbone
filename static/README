@@ -1,9 +1,9 @@
 A Repackaged Taxonomic Backbone of Global Biodiversity Information Facility (GBIF)
 ---
 
-Global Biodiversity Information Facility (GBIF) facilitates access to billions of biodiversity data records. This records include detailed accounts of life on earth.
+Global Biodiversity Information Facility (GBIF) facilitates access to billions of biodiversity data records. These records include detailed accounts of life on earth.
 
-To help find specific life forms, GBIF provides a taxonomic backbone [1,2]. This backbone contains a long list of names used to describe species and associated hierarchies and taxonomic publications. These lists are sourced from datasets around the world.
+To help records of specific life forms, GBIF provides a taxonomic backbone [1,2]. This backbone contains a long list of names used to describe species and associated hierarchies and taxonomic publications. These lists are sourced from datasets around the world.
 
 At time of writing (18 Aug 2021), GBIF publishes a simplified version of their taxonomic backbone at [https://hosted-datasets.gbif.org/datasets/backbone/](https://hosted-datasets.gbif.org/datasets/backbone/) [1].
 
